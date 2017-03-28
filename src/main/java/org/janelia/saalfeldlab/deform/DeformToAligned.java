@@ -156,23 +156,23 @@ public class DeformToAligned {
 					sourceInterval.dimension(1),
 					sourceInterval.dimension(2));
 
-			mapSlices(
-					Views.extendValue(rawSource, new UnsignedByteType(0)),
-					sourceInterval,
-					transforms,
-					new ClampingNLinearInterpolatorFactory<>(),
-					rawTarget,
-					params.meshCellSize);
+			//mapSlices(
+			//		Views.extendValue(rawSource, new UnsignedByteType(0)),
+			//		sourceInterval,
+			//		transforms,
+			//		new ClampingNLinearInterpolatorFactory<>(),
+			//		rawTarget,
+			//		params.meshCellSize);
 
 			/* save */
-			System.out.println("writing " + params.outFile);
+			//System.out.println("writing " + params.outFile);
 
-			System.out.println("  " + rawPath);
-			H5Utils.saveUnsignedByte(
-					rawTarget,
-					outFile,
-					rawPath,
-					cellDimensions);
+			//System.out.println("  " + rawPath);
+			//H5Utils.saveUnsignedByte(
+			//		rawTarget,
+			//		outFile,
+			//		rawPath,
+			//		cellDimensions);
 
 			H5Utils.saveAttribute(new double[] { 40.0, 4.0, 4.0 }, writer, rawPath, "resolution");
 			rawTarget = null;
@@ -220,11 +220,6 @@ public class DeformToAligned {
 							params.meshCellSize);
 
 					/* save */
-                    // FIXME This threw the following exception
-                    // Exception in thread "main" ncsa.hdf.hdf5lib.exceptions.HDF5FunctionArgumentException: Invalid arguments to routine:Bad value ["H5Dio.c line 686 in H5D__write(): src dataspace has invalid selection"]
-                    // which I have 'fixed' by now with replacing 'saveUnsignedLong' with 'saveLong'
-                    // maybe different HDF5 versions?
-					System.out.println("writing " + labelsPath);
 					H5Utils.saveLong(
 							labelsTarget,
 							outFile,
