@@ -25,7 +25,7 @@ def add_synclefts(source_file, additional_clefts_file,
 
 
 if __name__ == '__main__':
-    sample = 'C'
+    sample = 'B'
     add_synclefts(
         '/home/papec/Work/data/cremi/orig_data/sample_%s_padded_20160501.hdf' % sample,
         '/media/papec/Seagate Expansion Drive/synapse_data/sample%s_syngt.h5' % sample,
