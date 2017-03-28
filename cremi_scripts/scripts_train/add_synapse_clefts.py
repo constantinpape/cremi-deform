@@ -13,7 +13,7 @@ def add_synclefts(source_file, additional_clefts_file,
     add_clefts, _, _ = vigra.analysis.relabelConsecutive(add_clefts, start_label = 1, keep_zeros = True)
     add_clefts[add_clefts == 0] = bg_label
 
-    vigra.writeHDF5(syns_source, source_file, target_path)
+    vigra.writeHDF5(syns_source, source_file, target_path, compression = 'gzip')
 
     # copy the attributes
     with h5py.File(source_file) as f:
