@@ -53,7 +53,7 @@ public class DeformToAligned {
 		public String inFileLabels = null;
 
 		@Parameter( names = { "--label", "-l" }, description = "label dataset" )
-		public List<String> labels = Arrays.asList( new String[]{"/volumes/labels/neuron_ids","/volumes/labels/clefts","/volumes/labels/clefts_corrected"});
+		public List<String> labels = Arrays.asList( new String[]{"/volumes/labels/test_mask"});
 
 		@Parameter(names = { "--outfile", "-o" }, description = "output CREMI-format HDF5 file name")
 		public String outFile;
@@ -156,23 +156,23 @@ public class DeformToAligned {
 					sourceInterval.dimension(1),
 					sourceInterval.dimension(2));
 
-			//mapSlices(
-			//		Views.extendValue(rawSource, new UnsignedByteType(0)),
-			//		sourceInterval,
-			//		transforms,
-			//		new ClampingNLinearInterpolatorFactory<>(),
-			//		rawTarget,
-			//		params.meshCellSize);
+			mapSlices(
+					Views.extendValue(rawSource, new UnsignedByteType(0)),
+					sourceInterval,
+					transforms,
+					new ClampingNLinearInterpolatorFactory<>(),
+					rawTarget,
+					params.meshCellSize);
 
 			/* save */
-			//System.out.println("writing " + params.outFile);
+			System.out.println("writing " + params.outFile);
 
-			//System.out.println("  " + rawPath);
-			//H5Utils.saveUnsignedByte(
-			//		rawTarget,
-			//		outFile,
-			//		rawPath,
-			//		cellDimensions);
+			System.out.println("  " + rawPath);
+			H5Utils.saveUnsignedByte(
+					rawTarget,
+					outFile,
+					rawPath,
+					cellDimensions);
 
 			H5Utils.saveAttribute(new double[] { 40.0, 4.0, 4.0 }, writer, rawPath, "resolution");
 			rawTarget = null;
