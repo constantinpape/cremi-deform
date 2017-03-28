@@ -1,6 +1,6 @@
 #!/bin/bash
 
-java -Xmx3g -cp ../target/deform-0.0.1-SNAPSHOT.jar org.janelia.saalfeldlab.deform.DeformFromAligned \
+java -Xmx3g -cp ../../target/deform-0.0.1-SNAPSHOT.jar org.janelia.saalfeldlab.deform.DeformFromAligned \
  -i /home/papec/Work/data/cremi/realigned_data/sampleA+/raw/sampleA+_raw_automatically_realigned.h5 \
  -j /home/papec/Work/data/results/cremi/jans_affinity_maps/mc_V1/sample_A_test_mcresultV1.h5 \
  -l  \

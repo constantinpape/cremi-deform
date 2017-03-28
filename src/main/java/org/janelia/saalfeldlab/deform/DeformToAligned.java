@@ -53,7 +53,7 @@ public class DeformToAligned {
 		public String inFileLabels = null;
 
 		@Parameter( names = { "--label", "-l" }, description = "label dataset" )
-		public List<String> labels = Arrays.asList( new String[]{"/volumes/labels/neuron_ids","/volumes/labels/clefts"});
+		public List<String> labels = Arrays.asList( new String[]{"/volumes/labels/neuron_ids","/volumes/labels/clefts","/volumes/labels/clefts_corrected"});
 
 		@Parameter(names = { "--outfile", "-o" }, description = "output CREMI-format HDF5 file name")
 		public String outFile;
